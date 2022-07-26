@@ -9,6 +9,7 @@ class App extends Component {
         this.state = {
             warning: false,
             info   : false,
+            error  : false,
         }
         this.onChange = this.onChange.bind(this);
     }
@@ -16,10 +17,13 @@ class App extends Component {
     onChange(value) {
         console.log(value);
         if (value === 'warning') {
-            this.setState({warning: true, info: false})
+            this.setState({warning: true, info: false, error: false})
         }
         if (value === 'info') {
-            this.setState({info: true, warning: false})
+            this.setState({warning: false, info: true, error: false})
+        }
+        if (value === 'error') {
+            this.setState({warning: false, info: false, error: true})
         }
     }
 
@@ -40,6 +44,13 @@ class App extends Component {
                             type={'info'}
                             title={'Information'}
                             content={'This is a information message'}
+                        /> :null
+                    }
+                    {
+                        this.state.error ? <MyAlert
+                            type={'error'}
+                            title={'Error'}
+                            content={'This is a error message'}
                         /> :null
                     }
                     <Trigger onChange={this.onChange}/>

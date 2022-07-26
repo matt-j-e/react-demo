@@ -33,6 +33,7 @@ class Trigger extends Component {
                     >
                         <MenuItem value={'info'}>Info</MenuItem>
                         <MenuItem value={'warning'}>Warning</MenuItem>
+                        <MenuItem value={'error'}>Error</MenuItem>
                     </Select>
                 </FormControl>
             </Fragment>
