@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Fragment} from 'react';
 import {FormControl, InputLabel, MenuItem, Select} from '@mui/material';
+import { type } from '@testing-library/user-event/dist/type';
 
 class Trigger extends Component {
 
@@ -32,9 +33,11 @@ class Trigger extends Component {
                         value={this.state.alertState}
                         onChange={this.onChange}
                     >
-                        <MenuItem value={'info'}>Info</MenuItem>
-                        <MenuItem value={'warning'}>Warning</MenuItem>
-                        <MenuItem value={'error'}>Error</MenuItem>
+                        {
+                            this.props.alertTypes.map(type => {
+                                return <MenuItem value={type}>{type}</MenuItem>
+                            })
+                        }                    
                     </Select>
                 </FormControl>
             </Fragment>
@@ -44,6 +47,7 @@ class Trigger extends Component {
 
 Trigger.propTypes = {
     onChange: PropTypes.func.isRequired,
+    alertTypes: PropTypes.array.isRequired,
 };
 
 export default Trigger;

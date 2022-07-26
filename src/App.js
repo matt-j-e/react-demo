@@ -36,7 +36,7 @@ class App extends Component {
                             content={alertTypes.get(type).content}
                         /> : null
                     }
-                    <Trigger onChange={this.onChange}/>
+                    <Trigger onChange={this.onChange} alertTypes={Array.from(alertTypes.keys())} />
                 </Stack>
             </>
         );
