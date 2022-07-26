@@ -8,7 +8,7 @@ class Trigger extends Component {
     constructor(props) {
         super();
         this.state = {
-            alertState: null,
+            alertState: "",
         }
         this.onChange = this.onChange.bind(this);
     }
