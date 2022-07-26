@@ -13,24 +13,17 @@ class App extends Component {
         this.onChange = this.onChange.bind(this);
     }
 
-    componentDidMount() {
-        var info = true;
-        this.setState({warning: info})
-    }
-
     onChange(value) {
         console.log(value);
         if (value === 'warning') {
-            this.setState({warning: true})
+            this.setState({warning: true, info: false})
         }
         if (value === 'info') {
-            this.setState({info: true})
+            this.setState({info: true, warning: false})
         }
     }
 
     render() {
-        const {info} = this.state;
-
         return (
             <>
                 <Stack sx={{width: '600px', padding: '20px'}} spacing={2}>
@@ -43,7 +36,7 @@ class App extends Component {
                         /> :null
                     }
                     {
-                        info ? <MyAlert
+                        this.state.info ? <MyAlert
                             type={'info'}
                             title={'Information'}
                             content={'This is a information message'}

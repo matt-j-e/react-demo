@@ -7,7 +7,7 @@ class Trigger extends Component {
     constructor(props) {
         super();
         this.state = {
-            alertState: 'info',
+            alertState: null,
         }
         this.onChange = this.onChange.bind(this);
     }
@@ -16,18 +16,18 @@ class Trigger extends Component {
         this.setState({
             alertState: event.target.value
         })
-        this.props.onChange(this.state.alertState)
+        this.props.onChange(event.target.value)
     }
 
     render() {
         return (
             <Fragment>
                 <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Alert</InputLabel>
+                    <InputLabel id="demo-simple-select-label">Select an Alert</InputLabel>
                     <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
-                        label="Age"
+                        label="Select an Alert"
                         value={this.state.alertState}
                         onChange={this.onChange}
                     >

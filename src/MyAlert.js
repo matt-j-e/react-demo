@@ -6,8 +6,8 @@ const MyAlert = ({type, title, content}) => {
 
     return (
         <Alert severity={type}>
-            <AlertTitle>title</AlertTitle>
-            content
+            <AlertTitle>{title}</AlertTitle>
+            {content}
         </Alert>
     );
 };
