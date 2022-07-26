@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Fragment} from 'react';
 import {FormControl, InputLabel, MenuItem, Select} from '@mui/material';
-import { type } from '@testing-library/user-event/dist/type';
 
 class Trigger extends Component {
 
@@ -34,8 +33,11 @@ class Trigger extends Component {
                         onChange={this.onChange}
                     >
                         {
-                            this.props.alertTypes.map(type => {
-                                return <MenuItem value={type}>{type}</MenuItem>
+                            this.props.alertTypes.map((type, index) => {
+                                return <MenuItem 
+                                            value={type}
+                                            key={index}
+                                        >{type}</MenuItem>
                             })
                         }                    
                     </Select>
